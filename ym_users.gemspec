@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.1.0"
   s.add_dependency 'devise'
   s.add_dependency 'cancan'
-  
 
   s.add_development_dependency "sqlite3"
 end

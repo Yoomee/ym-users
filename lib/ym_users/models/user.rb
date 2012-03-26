@@ -9,6 +9,11 @@ module YmUsers::User
     base.image_accessor :image
   end
   
+  def admin?
+    role == "admin"
+  end
+  alias_method :is_admin?, :admin?
+  
   def to_s
     "#{first_name} #{last_name}".strip
   end

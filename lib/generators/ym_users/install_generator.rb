@@ -16,7 +16,10 @@ module YmUsers
       end
 
       def copy_migrations
-        migration_template "create_users.rb", "db/migrate/create_users"
+        Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
+          file_name = file_path.split("/").last
+          migration_template "migrations/#{file_name}", "db/migrate/#{file_name}"
+        end
       end
     end
   end
