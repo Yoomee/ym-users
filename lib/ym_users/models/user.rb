@@ -9,7 +9,7 @@ module YmUsers::User
     
     base.validates_presence_of :email, :password, :first_name, :last_name
     base.image_accessor :image
-    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :png, :gif], :message => "must be an image")
+    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif], :message => "must be an image")
   end
   
   def admin?
