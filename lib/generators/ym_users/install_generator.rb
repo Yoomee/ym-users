@@ -18,7 +18,7 @@ module YmUsers
       def copy_migrations
         Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
           file_name = file_path.split("/").last
-          migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+_/, '')}"
+          migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+\_/, '')}"
         end
       end
     end
