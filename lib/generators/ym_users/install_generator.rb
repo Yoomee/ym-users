@@ -16,7 +16,7 @@ module YmUsers
       end
 
       def copy_migrations
-        Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
+        Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].sort_by {|file_path| File.ctime(file_path)}.each do |file_path|
           file_name = file_path.split("/").last
           migration_template "migrations/#{file_name}", "db/migrate/#{file_name}"
         end
