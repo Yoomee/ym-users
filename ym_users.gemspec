@@ -17,8 +17,9 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.1.0"
+  s.add_dependency 'ym_core'
   s.add_dependency 'devise'
-  s.add_dependency 'cancan'
+  s.add_dependency 'cancan'  
 
   # for testing
   s.add_development_dependency "mysql2"    
