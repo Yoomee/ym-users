@@ -8,6 +8,7 @@ module YmUsers
 
       def manifest
         copy_file "controllers/users_controller.rb", "app/controllers/users_controller.rb"
+        copy_file "models/ability.rb", "app/models/ability.rb"
         append_to_file "db/seeds.rb", File.read(find_in_source_paths("db/seeds.rb"))
         
         # Migrations must go last
