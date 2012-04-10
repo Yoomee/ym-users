@@ -4,7 +4,18 @@ module YmUsers
       include Rails::Generators::Migration
 
       source_root File.expand_path("../templates", __FILE__)
-      desc "Copies in migrations."
+      desc "Install YmUsers"
+
+      def manifest
+        copy_file "controllers/users_controller.rb", "app/controllers/users_controller.rb"
+        append_to_file "db/seeds.rb", File.read(find_in_source_paths("db/seeds.rb"))
+        
+        # Migrations must go last
+        Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
+          file_name = file_path.split("/").last
+          migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+\_/, '')}"
+        end
+      end
 
       def self.next_migration_number(path)
         unless @prev_migration_nr
@@ -13,13 +24,6 @@ module YmUsers
           @prev_migration_nr += 1
         end
         @prev_migration_nr.to_s
-      end
-
-      def copy_migrations
-        Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
-          file_name = file_path.split("/").last
-          migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+\_/, '')}"
-        end
       end
     end
   end
