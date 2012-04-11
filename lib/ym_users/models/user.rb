@@ -21,4 +21,10 @@ module YmUsers::User
     "#{first_name} #{last_name}".strip
   end
   
+  def yoomee_staff?
+    email.in?(YmUsers::YOOMEE_EMAILS)
+  end
+  
 end
+
+YmUsers::YOOMEE_EMAILS = %w{si@yoomee.com rich@yoomee.com ian@yoomee.com matt@yoomee.com andy@yoomee.com nicola@yoomee.com}
