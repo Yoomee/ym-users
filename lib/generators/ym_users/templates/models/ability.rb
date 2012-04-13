@@ -4,16 +4,17 @@ class Ability
   include CanCan::Ability
   
   def initialize(user)
+    
+    # open ability
+    
     if user.try(:admin?)
-      # admin ability
       can :manage, :all      
+      # admin ability
     elsif user
       # user ability
-      can :manage, User, :id => user.id
-    else
-      # open ability
-      cannot [:create, :update, :destroy], :all
+      can :manage, User, :id => user.id      
     end
+    
   end
   
 end
