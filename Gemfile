@@ -1,3 +1,5 @@
+require File.expand_path('../../../lib/ym_gem_loader')
+
 source "http://rubygems.org"
 
 # Declare your gem's dependencies in ym_users.gemspec.
@@ -12,5 +14,3 @@ gemspec
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-gem "ym_core", :path => "#{File.dirname(__FILE__)}/../ym_core"
