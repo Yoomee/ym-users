@@ -14,7 +14,7 @@ module YmUsers
         # Migrations must go last
         Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
           file_name = file_path.split("/").last
-          migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+\_/, '')}"
+          try_migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+\_/, '')}"
         end
       end
 
@@ -26,6 +26,16 @@ module YmUsers
         end
         @prev_migration_nr.to_s
       end
+      
+      private
+      def try_migration_template(source, destination)
+        begin
+          migration_template source, destination
+        rescue Rails::Generators::Error => e
+          puts e
+        end
+      end
+      
     end
   end
 end
