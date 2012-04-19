@@ -3,7 +3,11 @@ require "ym_users/engine"
 require "cancan"
 
 if !defined?(User)
-  user_model_path = File.join(%x(pwd).strip,"app/models/user.rb")
+  if File.exists?(File.join(%x(pwd).strip,"test/dummy"))
+    user_model_path = File.join(%x(pwd).strip,"test/dummy/app/models/user.rb")
+  else
+    user_model_path = File.join(%x(pwd).strip,"app/models/user.rb")
+  end
   if !File.exists?(user_model_path)
     user_template_path = File.join(File.expand_path(File.dirname(__FILE__)), "generators/ym_users/templates/models/user.rb")
     system("cp #{user_template_path} #{user_model_path}")
