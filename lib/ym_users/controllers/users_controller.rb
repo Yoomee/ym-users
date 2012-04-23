@@ -4,6 +4,14 @@ module YmUsers::UsersController
     base.expose(:user)
   end
   
+  def create
+    if user.save
+      redirect_to(user)
+    else
+      render :action => "new"
+    end
+  end
+  
   def update
     if user.save
       redirect_to(user)

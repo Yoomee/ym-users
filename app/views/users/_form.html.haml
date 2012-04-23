@@ -3,9 +3,12 @@
     =form.input :first_name
     =form.input :last_name
     =form.input :email
-    =form.input :bio, :input_html => {:rows => 5, :class => "span6"}
-    =form.input :retained_image, :as => :hidden
-    =form.input :image, :as => :file
+    -if user.new_record?
+      =form.input :password 
+    -else
+      =form.input :bio, :input_html => {:rows => 5, :class => "span6"}
+      =form.input :retained_image, :as => :hidden
+      =form.input :image, :as => :file
   =form.buttons do
     =form.commit_button "Save"
   
