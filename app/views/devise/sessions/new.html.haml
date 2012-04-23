@@ -9,6 +9,6 @@
         =form.input :remember_me, :as => :boolean if devise_mapping.rememberable?
         =hidden_field_tag :next, params[:next] if params[:next]
       =form.buttons do
-        =form.commit_button t(:login)
+        =form.commit_button t(:login), :button_html => {:data => {:"loading-text" => "Logging in..."}}
   .span8
     =render("links")
