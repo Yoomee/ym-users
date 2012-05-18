@@ -9,7 +9,9 @@ module YmUsers
       def manifest
         copy_file "controllers/users_controller.rb", "app/controllers/users_controller.rb"
         copy_file "models/ability.rb", "app/models/ability.rb"
-        append_to_file "db/seeds.rb", File.read(find_in_source_paths("db/seeds.rb"))
+        if File.exists?("db/seeds.rb")
+          append_to_file "db/seeds.rb", File.read(find_in_source_paths("db/seeds.rb"))
+        end
         
         # Migrations must go last
         Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
