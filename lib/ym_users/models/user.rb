@@ -14,9 +14,13 @@ module YmUsers::User
   end
   
   def admin?
-    role == "admin"
+    role_is?(:admin)
   end
   alias_method :is_admin?, :admin?
+  
+  def role_is?(role_type)
+    role.present? && (role == role_type.to_s)
+  end
   
   def to_s
     "#{first_name} #{last_name}".strip
