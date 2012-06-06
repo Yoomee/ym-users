@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.1.0"
   s.add_dependency 'ym_core'
-  s.add_dependency 'devise'
+  s.add_dependency 'devise', "~> 2.1.0"
   s.add_dependency 'cancan'  
 
   # for testing
