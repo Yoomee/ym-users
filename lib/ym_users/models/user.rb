@@ -11,6 +11,19 @@ module YmUsers::User
     base.validates_presence_of :password, :on => :create
     base.image_accessor :image
     base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif], :message => "must be an image")
+    base.extend(ClassMethods)
+  end
+  
+  module ClassMethods
+    
+    def has_roles(*args)
+      args.each do |role|
+        define_method("#{role}?") do
+          role_is?(role)
+        end
+      end
+    end
+    
   end
   
   def admin?
