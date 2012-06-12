@@ -40,9 +40,9 @@ module YmUsers::User
   end
   
   def yoomee_staff?
-    email.in?(YmUsers::YOOMEE_EMAILS)
+    admin? && email.in?(YmUsers::YOOMEE_EMAILS)
   end
   
 end
 
-YmUsers::YOOMEE_EMAILS = %w{si@yoomee.com rich@yoomee.com ian@yoomee.com matt@yoomee.com andy@yoomee.com nicola@yoomee.com}
+YmUsers::YOOMEE_EMAILS = %w{rich@yoomee.com ian@yoomee.com matt@yoomee.com andy@yoomee.com nicola@yoomee.com}
