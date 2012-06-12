@@ -12,6 +12,12 @@ module YmUsers::UsersController
     end
   end
   
+  def destroy
+    user.destroy
+    flash_notice(user)
+    return_or_redirect_to(user)
+  end
+  
   def update
     if user.save
       redirect_to(user)
