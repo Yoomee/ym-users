@@ -15,7 +15,7 @@ module YmUsers::UsersController
   def destroy
     user.destroy
     flash_notice(user)
-    return_or_redirect_to(user)
+    return_or_redirect_to(users_path)
   end
   
   def update
