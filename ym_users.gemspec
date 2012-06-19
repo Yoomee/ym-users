@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.1.0"
   s.add_dependency 'ym_core', "~> 0.1"
   s.add_dependency 'devise', "~> 2.1.0"
-  s.add_dependency 'cancan'  
+  s.add_dependency 'cancan'
 
   # for testing
   s.add_development_dependency "mysql2"    
@@ -28,5 +28,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency "capybara"
   s.add_development_dependency "guard-rspec"
+  s.add_development_dependency "geminabox"  
 
 end
