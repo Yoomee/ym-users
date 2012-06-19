@@ -1,11 +1,5 @@
 DEFAULT_USERS   = [
   {
-    :first_name => 'Si',
-    :last_name  => 'Wilkins',
-    :email      => 'si@yoomee.com',
-    :role       => 'admin'
-  },
-  {
     :first_name => 'Rich',
     :last_name  => 'Wells',
     :email      => 'rich@yoomee.com',
@@ -34,7 +28,14 @@ DEFAULT_USERS   = [
     :last_name  => 'Mayer',
     :email      => 'nicola@yoomee.com',
     :role       => 'admin'    
+  },
+  {
+    :first_name => 'Edward',
+    :last_name  => 'Andrews',
+    :email      => 'edward@yoomee.com',
+    :role       => 'admin'
   }
+  
 ]
 
 DEFAULT_USERS.each do |user_attrs|
