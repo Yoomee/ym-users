@@ -12,7 +12,9 @@ module YmUsers
         if File.exists?("db/seeds.rb")
           append_to_file "db/seeds.rb", File.read(find_in_source_paths("db/seeds.rb"))
         end
-        
+        if Dir.glob("public/dragonfly/defaults/user.*").empty?
+          copy_file "images/user.jpg", "public/dragonfly/defaults/user.jpg"
+        end
         # Migrations must go last
         Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
           file_name = file_path.split("/").last
