@@ -1,4 +1,5 @@
 require 'devise'
+require "ym_core"
 require "ym_users/engine"
 require "cancan"
 
