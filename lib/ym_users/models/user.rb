@@ -31,12 +31,16 @@ module YmUsers::User
   end
   alias_method :is_admin?, :admin?
   
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
+  
   def role_is?(role_type)
     role.present? && (role == role_type.to_s)
   end
   
   def to_s
-    "#{first_name} #{last_name}".strip
+   full_name
   end
   
   def yoomee_staff?
