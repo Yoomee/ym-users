@@ -1,6 +1,9 @@
 .row
-  .span5
+  .span6
     %h1=t(:login)
+    .well.mt2
+      %i.icon-lock
+      Please log in by entering your email address and password
   .span8
     =semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |form|
       =form.inputs do
