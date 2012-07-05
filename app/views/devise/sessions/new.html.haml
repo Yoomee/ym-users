@@ -1,10 +1,10 @@
 .row
-  .span6
+  .span8
     %h1=t(:login)
     .well.mt2
       %i.icon-lock
       Please log in by entering your email address and password
-  .span8
+  .span8  
     =semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |form|
       =form.inputs do
         =form.input :email
@@ -12,6 +12,6 @@
         =form.input :remember_me, :as => :boolean if devise_mapping.rememberable?
         =hidden_field_tag :next, params[:next] if params[:next]
       =form.buttons do
-        =form.commit_button t(:login), :button_html => {:data => {:"loading-text" => "Logging in..."}}
+        =form.commit_button t(:login), :button_html => {:class => "btn-primary", :data => {:"loading-text" => "Logging in..."}}
   .span8
     =render("devise/shared/links")
