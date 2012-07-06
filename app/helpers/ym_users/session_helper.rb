@@ -4,9 +4,9 @@ module YmUsers::SessionHelper
     current_user.try(:is_admin?)
   end
   
-  def logged_in_as?(user)
-    return false if user.nil?
-    current_user == user
+  def logged_in_as?(*users)
+    return false if current_user.nil?
+    users.flatten.include?(current_user)
   end
   
   def logged_in?
