@@ -1,6 +1,7 @@
 module YmUsers::User
   
   def self.included(base)
+    base.send(:include, YmCore::Model)
     # Include default devise modules. Others available are:
     # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
     base.devise :database_authenticatable, :recoverable, :rememberable, :trackable, :registerable
