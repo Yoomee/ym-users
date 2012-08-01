@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     get "users/change_password", :to => "devise/registrations#edit", :as => "change_password"
   end
   resources :users
+  match 'super' => 'super#index'
+  match 'super/morph' => 'super#morph', :via => :post
   
 end
