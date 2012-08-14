@@ -37,6 +37,13 @@ module YmUsers::User
     "#{first_name} #{last_name}".strip
   end
   
+  def full_name=(val)
+    names = val.split(" ")
+    self.last_name = names.pop if names.length > 1
+    self.first_name = names.join(" ")
+    val
+  end
+  
   def role_is?(role_type)
     role.present? && (role == role_type.to_s)
   end
