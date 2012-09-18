@@ -18,6 +18,14 @@ module YmUsers::UsersController
     return_or_redirect_to(users_path)
   end
   
+  def stats
+    @registrations = [].tap do |arr|
+      User.where("created_at >= ?",2.months.ago).group("DATE(created_at)").count.each do |date, count|
+        arr << [date.strftime("%d/%m/%y"), count]
+      end
+    end
+  end
+
   def update
     if user.save
       redirect_to(user)

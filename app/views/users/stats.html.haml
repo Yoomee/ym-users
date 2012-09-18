@@ -1,0 +1,30 @@
+=content_for :head do
+  =javascript_include_tag "https://www.google.com/jsapi"
+  %script{:type=>"text/javascript", :src => "https://www.google.com/jsapi"}
+  :javascript
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Date');
+      data.addColumn('number', 'Registrations');
+      data.addRows(#{@registrations.inspect});
+      var chart = new google.visualization.ColumnChart(document.getElementById('registrations'));
+      chart.draw(data, {width: 1000, height: 250, legend: 'none', chartArea: {left: 50, top: 20, right: 50, bottom:0}, colors:['#000']});
+    }
+
+  -title "User statistics"
+.span12
+  %h2.mb-1 Overall stats
+  %dl
+    %dt Total registrations
+    %dd=@users.count
+    %dt Total logins
+    %dd=User.sum(:sign_in_count)
+    
+.span12
+  %h2 Registrations per day
+  #registrations
+.span12
+  =options_panel do
+    =back_link

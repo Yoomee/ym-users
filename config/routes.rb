@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     get "sign-up", :to => "devise/registrations#new", :as => "sign_up" 
     get "users/change_password", :to => "devise/registrations#edit", :as => "change_password"
   end
-  resources :users
+  resources :users do 
+    collection do
+      get 'stats'
+    end
+  end
   match 'super' => 'super#index'
   match 'super/morph' => 'super#morph', :via => :post
   
