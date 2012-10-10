@@ -18,10 +18,10 @@
   %h2.mb-1 Overall stats
   %dl
     %dt Total registrations
-    %dd=@users.count
+    %dd=User.count
     %dt Total logins
     %dd=User.sum(:sign_in_count)
-    
+
 .span12
   %h2 Registrations per day
   #registrations
