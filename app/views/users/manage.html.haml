@@ -1,0 +1,14 @@
+.row
+  .span5
+    %h1 Users
+
+    %ul.nav.nav-tabs
+      %li.active
+        =link_to '#all_users', :'data-toggle' => 'tab' do
+          All users
+          %span.badge=@users.count
+
+
+    .tab-content
+      #all_users.tab-pane.fade.in.active
+        =render('table', :users => @users, :tab => "all_users")

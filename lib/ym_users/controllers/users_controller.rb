@@ -15,9 +15,13 @@ module YmUsers::UsersController
   def destroy
     user.destroy
     flash_notice(user)
-    return_or_redirect_to(users_path)
+    return_or_redirect_to(manage_users_path)
   end
-  
+
+  def manage
+    @users = User.all
+  end
+
   def stats
     @registrations = [].tap do |arr|
       User.where("created_at >= ?",2.months.ago).group("DATE(created_at)").count.each do |date, count|

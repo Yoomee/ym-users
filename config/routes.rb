@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users do 
     collection do
       get 'stats'
+      get 'manage'
     end
   end
   match 'super' => 'super#index'
