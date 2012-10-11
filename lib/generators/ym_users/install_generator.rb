@@ -12,6 +12,9 @@ module YmUsers
         if File.exists?("db/seeds.rb")
           append_to_file "db/seeds.rb", File.read(find_in_source_paths("db/seeds.rb"))
         end
+        if File.exists?("app/views/admin/index.html.haml")
+          append_to_file "app/views/admin/index.html.haml", File.read(find_in_source_paths("views/admin/index.html.haml"))
+        end
         if Dir.glob("public/dragonfly/defaults/user.*").empty?
           copy_file "images/user.jpg", "public/dragonfly/defaults/user.jpg"
         end
