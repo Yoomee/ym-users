@@ -9,7 +9,7 @@ module YmUsers::UsersHelper
   end
 
   def name_and_role(user)
-    user.role.present? ? (user.full_name + "&nbsp;" + content_tag(:span, user.role, :class => "badge badge-square badge-info")).html_safe : user.full_name
+    user.role.present? ? (link_to_self(user) + "&nbsp;".html_safe + content_tag(:span, user.role, :class => "badge badge-square badge-info")) : link_to_self(user)
   end
 
 end

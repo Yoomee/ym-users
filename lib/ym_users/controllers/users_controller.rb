@@ -19,7 +19,8 @@ module YmUsers::UsersController
   end
 
   def manage
-    @users = User.all
+    @users = User.order(:last_name)
+    @admins = User.where(:role => "admin").order(:last_name)
   end
 
   def stats

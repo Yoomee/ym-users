@@ -7,8 +7,14 @@
         =link_to '#all_users', :'data-toggle' => 'tab' do
           All users
           %span.badge=@users.count
+      %li
+        =link_to '#admins', :'data-toggle' => 'tab' do
+          Admins
+          %span.badge=@admins.count
 
 
     .tab-content
       #all_users.tab-pane.fade.in.active
         =render('table', :users => @users, :tab => "all_users")
+      #admins.tab-pane.fade.in
+        =render('table', :users => @admins, :tab => "admins")
