@@ -2,10 +2,11 @@ module YmUsers::ApplicationController
   
   def self.included(base)
     base.rescue_from CanCan::AccessDenied do |exception|
-      flash[:error] = exception.message
       if user_signed_in?
+        flash[:error] = exception.message
         redirect_to root_path
       else
+        flash[:notice] = "Log in to continue"
         redirect_to sign_in_path(:next => request.path)
       end
     end
