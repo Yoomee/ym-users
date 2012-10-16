@@ -6,7 +6,6 @@ module YmUsers::ApplicationController
         flash[:error] = exception.message
         redirect_to root_path
       else
-        flash[:notice] = "Log in to continue"
         redirect_to sign_in_path(:next => request.path)
       end
     end
