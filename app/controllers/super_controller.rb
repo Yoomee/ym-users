@@ -11,6 +11,6 @@ class SuperController < ApplicationController
   
   private
   def reject_non_yoomee_staff
-    redirect_to root_path unless current_user && current_user.yoomee_staff?
+    redirect_to root_path unless Rails.env.development? || (current_user && current_user.yoomee_staff?)
   end
 end
