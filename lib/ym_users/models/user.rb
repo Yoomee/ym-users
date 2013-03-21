@@ -12,7 +12,7 @@ module YmUsers::User
     base.validates :email, :email => true, :uniqueness => true, :allow_blank => true
     base.validates_presence_of :password, :on => :create
     base.image_accessor :image
-    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif], :message => "must be an image")
+    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif], :case_sensitive => false, :message => "must be an image")
     base.extend(ClassMethods)
   end
   
