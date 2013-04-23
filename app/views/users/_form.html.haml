@@ -1,9 +1,10 @@
-=semantic_form_for(@user, :multipart => true) do |form|
+=semantic_form_for(@user, user_url_and_method_create_edit(@user)) do |form|
   =form.inputs do
     =form.input :first_name
     =form.input :last_name
     =form.input :email
     -if @user.new_record?
+      =form.input :role, :label => 'Admin?', :as => :boolean, :checked_value => 'admin', :unchecked_value => ''
       =form.input :password
     -else
       =form.input :bio, :input_html => {:rows => 5, :class => 'span4'}

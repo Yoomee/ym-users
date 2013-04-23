@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get 'stats'
       get 'manage'
+      post 'create_user'
     end
   end
   match 'super' => 'super#index'
