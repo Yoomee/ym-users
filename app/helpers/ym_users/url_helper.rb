@@ -18,6 +18,9 @@ module YmUsers::UrlHelper
         options[:method] ||= :delete
       elsif !ability_or_resource[1].is_a?(ActiveRecord::Base)
         ability_or_resource[1] = ability_or_resource[1].to_s.underscore
+      elsif ability_or_resource[1].new_record?
+        # link_to('New page', [:new, Page.new]) errors, so change to link_to('New page', [:new, :page])
+        args[block_given? ? 0 : 1] = [ability_or_resource[0], ability_or_resource[1].class.to_s.underscore]
       end
     else
       return "" unless can?(:read, ability_or_resource)
