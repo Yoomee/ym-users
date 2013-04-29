@@ -12,6 +12,6 @@
         =form.input :remember_me, :as => :boolean if devise_mapping.rememberable?
         =hidden_field_tag :next, params[:next] if params[:next]
       =form.actions do
-        =form.action :submit, :label =>  t(:login), :button_html => {:class => 'btn-primary', :data => {:'loading-text' => 'Logging in...'}}
+        =form.action :submit, :label =>  t(:login), :button_html => {:class => 'btn btn-primary', :data => {:'loading-text' => 'Logging in...'}}
   .span8
     =render('devise/shared/links')
