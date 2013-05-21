@@ -9,5 +9,6 @@
     -else
       =form.input :bio, :input_html => {:rows => 5, :class => 'span4'}
       =form.input :image, :as => :image
+  =hidden_field_tag :return_to, params[:return_to] if params[:return_to]
   =form.actions do
     =form.action :submit, :label =>  'Save'
