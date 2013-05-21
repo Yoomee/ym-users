@@ -9,6 +9,7 @@
       =form.input :bio, :input_html => {:rows => 5, :class => "span4"}
       =form.input :retained_image, :as => :hidden
       =form.input :image, :as => :file
+  =hidden_field_tag :return_to, params[:return_to] if params[:return_to]
   =form.buttons do
     =form.commit_button "Save"
   
