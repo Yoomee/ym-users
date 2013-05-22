@@ -9,12 +9,4 @@ module YmUsers::SessionHelper
     users.flatten.include?(current_user)
   end
   
-  def logged_in?
-    current_user
-  end
-  
-  def logged_out?
-    current_user.nil?
-  end
-  
 end
