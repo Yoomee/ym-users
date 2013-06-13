@@ -1,11 +1,19 @@
 module YmUsers::UsersHelper
   
-  def first_name_or_you(user = @user)
-    current_user == user ? "you" : user.first_name
+  def first_name_or_you(user = @user, third_person_text = '', second_person_text = '')
+    if current_user != user
+      "#{user.first_name} #{third_person_text}".strip
+    else
+      "you #{second_person_text}".strip
+    end
   end
   
-  def first_name_or_your(user = @user)
-    current_user == user ? "your" : "#{user.first_name}'s"
+  def first_name_or_your(user = @user, third_person_text = '', second_person_text = '')
+    if current_user != user
+      "#{user.first_name}'s #{third_person_text}".strip
+    else
+      "your #{second_person_text}".strip
+    end
   end
 
   def name_and_role(user)
