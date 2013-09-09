@@ -14,7 +14,7 @@
         =form.input :password_confirmation
         =form.input :remember_me, :as => :boolean if devise_mapping.rememberable?
         =hidden_field_tag :next, params[:next] if params[:next]
-       =form.actions do
+      =form.actions do
         =form.action :submit, :label => 'Sign up', :button_html => {:class => 'btn-primary', :data => {:'loading-text' => 'Signing up...'}}
   .span8
     =render('devise/shared/links')
