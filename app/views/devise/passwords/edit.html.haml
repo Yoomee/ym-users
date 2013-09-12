@@ -8,6 +8,6 @@
         =form.input :password, :label => 'New password'
         =form.input :password_confirmation, :label => 'Confirm new password'
       =form.actions do
-        =form.action :submit, :label => 'Change my password'
+        =form.action :submit, :label => 'Change my password', :button_html => {:class => 'btn btn-primary'}
   .span8
     =render('devise/shared/links')
