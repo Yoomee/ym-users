@@ -9,7 +9,7 @@ module YmUsers::User
     base.attr_protected :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip
 
     base.image_accessor :image
-    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif], :case_sensitive => false, :message => "must be an image")
+    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif, :bmp], :case_sensitive => false, :message => "must be an image")
     base.extend(ClassMethods)
   end
   
