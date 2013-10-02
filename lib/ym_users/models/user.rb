@@ -10,6 +10,9 @@ module YmUsers::User
 
     base.image_accessor :image
     base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif, :bmp], :case_sensitive => false, :message => "must be an image")
+
+    base.scope :role_is, lambda {|role| base.where('role IN (?)', [*role].collect(&:to_s))}
+
     base.extend(ClassMethods)
   end
   
@@ -42,7 +45,7 @@ module YmUsers::User
   end
   
   def role_is?(role_type)
-    role.present? && (role == role_type.to_s)
+    role.present? && [*role_type].collect(&:to_s).include?(role)
   end
   
   def to_s

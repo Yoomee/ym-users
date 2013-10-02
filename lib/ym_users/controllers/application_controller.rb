@@ -4,7 +4,7 @@ module YmUsers::ApplicationController
     base.rescue_from CanCan::AccessDenied do |exception|
       if user_signed_in?
         flash[:error] = exception.message
-        redirect_to root_path
+        redirect_to after_sign_in_path_for(current_user)
       else
         session[:next] = request.path
         redirect_to sign_in_path(:next => request.path)
