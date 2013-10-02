@@ -20,4 +20,16 @@ module YmUsers::UsersHelper
     user.role.present? ? (link_to_self(user) + "&nbsp;".html_safe + content_tag(:span, user.role, :class => "badge badge-square badge-info")) : link_to_self(user)
   end
 
+  def to_s_or_you(user = @user, third_person_text = '', second_person_text = '')
+    if current_user != user
+      "#{user} #{third_person_text}".strip
+    else
+      "you #{second_person_text}".strip
+    end
+  end
+
+  def to_s_or_your(user = @user)
+    current_user == user ? "your" : "#{user}'s"
+  end
+
 end
