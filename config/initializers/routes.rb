@@ -22,7 +22,7 @@ module ActionDispatch::Routing
           post 'create_user'
         end
       end
-      match 'super' => 'super#index'
+      get 'super' => 'super#index'
       match 'super/morph' => 'super#morph', :via => :post
     end
   
