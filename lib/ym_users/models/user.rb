@@ -58,4 +58,4 @@ module YmUsers::User
   
 end
 
-YmUsers::YOOMEE_EMAILS = %w{andy nicola rich ian matt edward chrystal jon tim greg}.map{|u| "#{u}@yoomee.com"}
+YmUsers::YOOMEE_EMAILS = %w{andy nicola rich matt edward chrystal jon tim greg david carrie}.map{|u| "#{u}@yoomee.com"}
