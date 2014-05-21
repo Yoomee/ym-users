@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'ym_core', "~> 1.0"
   s.add_dependency 'devise', "~> 3.2.4"
-  s.add_dependency 'cancan'
+  s.add_dependency 'cancancan', '~> 1.8'
 
   # for testing
   s.add_development_dependency "mysql2"    
