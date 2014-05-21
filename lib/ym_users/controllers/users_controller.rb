@@ -1,7 +1,7 @@
 module YmUsers::UsersController
 
   def create_user
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
       redirect_to(@user)
     else
@@ -29,7 +29,7 @@ module YmUsers::UsersController
   end
 
   def update
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(user_params)
       return_or_redirect_to(@user)
     else
       render :action => "edit"
