@@ -1,7 +1,7 @@
 module YmUsers::UsersController
 
   def create_user
-    @user = User.new(user_params)
+    @user = User.new(create_user_params)
     if @user.save
       redirect_to(@user)
     else
@@ -34,6 +34,15 @@ module YmUsers::UsersController
     else
       render :action => "edit"
     end
+  end
+
+  private
+  def create_user_params
+    params.require(:user).permit(permitted_user_parameters.push(:role, :password))
+  end
+
+  def user_params
+    params.require(:user).permit(permitted_user_parameters)
   end
 
 end

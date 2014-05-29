@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   private
-  def user_params
-    params.require(:user).permit(:bio, :email, :first_name, :image, :last_name, :retained_image)
+  def permitted_user_parameters
+    %w(bio email first_name image last_name remove_image retained_image)
   end
 
 end
