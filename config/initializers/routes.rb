@@ -15,7 +15,7 @@ module ActionDispatch::Routing
         end
       end
 
-      resources :users do
+      resources :users, :except => :create do
         collection do
           get 'stats'
           get 'manage'
