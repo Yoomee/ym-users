@@ -1,9 +1,12 @@
-source 'https://yoomee:wLjuGMTu30AvxVyIrq3datc73LVUkvo@gems.yoomee.com'
-source "http://rubygems.org"
+source "https://yoomee:wLjuGMTu30AvxVyIrq3datc73LVUkvo@gems.yoomee.com"
+source "https://rubygems.org"
 
 # Declare your gem's dependencies in ym_users.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
+
+gem "ym_core", :git => "git@gitlab.yoomee.com:yoomee/ym_core.git", :branch => "rails-4"
+
 gemspec
 
 # Declare any dependencies that are still in development here instead of in
@@ -12,4 +15,4 @@ gemspec
 # your gem to rubygems.org.
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+# gem 'debugger'

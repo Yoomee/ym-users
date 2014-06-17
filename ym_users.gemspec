@@ -7,27 +7,27 @@ require "ym_users/version"
 Gem::Specification.new do |s|
   s.name        = "ym_users"
   s.version     = YmUsers::VERSION
-  s.authors     = ["Matt Atkins", "Ian Mooney", "Si Wilkins", "Edward Andrews"]
-  s.email       = ["matt@yoomee.com", "ian@yoomee.com", "si@yoomee.com", "edward@yoomee.com"]
-  s.homepage    = "http://www.yoomee.com"
-  s.summary     = "Summary of YmUsers."
-  s.description = "Description of YmUsers."
+  s.authors     = ["TODO: Your name"]
+  s.email       = ["TODO: Your email"]
+  s.homepage    = "TODO"
+  s.summary     = "TODO: Summary of YmUsers."
+  s.description = "TODO: Description of YmUsers."
+  s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency 'ym_core', "~> 1.0"
-  s.add_dependency 'devise', "~> 3.2.4"
-  s.add_dependency 'cancancan', '~> 1.8'
+  s.add_dependency "rails", "~> 4.1.1"
+  s.add_dependency "ym_core"
+  s.add_dependency "devise", "~> 3.2.4"
+  s.add_dependency "cancancan", "~> 1.8"
 
-  # for testing
-  s.add_development_dependency "mysql2"    
-  s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "factory_girl_rails"  
-  s.add_development_dependency 'shoulda-matchers'
-  s.add_development_dependency "capybara", '~> 1.1.0'
-  s.add_development_dependency "guard-rspec"
-  s.add_development_dependency "geminabox"
-  s.add_development_dependency 'ym_tools'
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec-rails", "~> 2.0"
+  s.add_development_dependency "factory_girl_rails"
+  s.add_development_dependency "cucumber-rails"
+  s.add_development_dependency "database_cleaner"
+  s.add_development_dependency "shoulda-matchers"
+  s.add_development_dependency "webmock"
 
 end

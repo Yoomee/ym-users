@@ -1,3 +1,4 @@
+require "ym_core"
 module YmUsers
   module Generators
     class InstallGenerator < Rails::Generators::Base
