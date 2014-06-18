@@ -8,6 +8,7 @@ module YmUsers
 
       def manifest
         copy_file "controllers/users_controller.rb", "app/controllers/users_controller.rb"
+        copy_file "models/user.rb", "app/models/user.rb"
         copy_file "models/ability.rb", "app/models/ability.rb"
         if File.exists?("db/seeds.rb") && !file_contains?("#{Rails.root}/db/seeds.rb", '@yoomee.com')
           append_to_file "db/seeds.rb", File.read(find_in_source_paths("db/seeds.rb"))
@@ -27,12 +28,12 @@ module YmUsers
           route 'ym_users_routes'
         end
       end
-      
+
       private
       def file_contains?(file_name, text)
         File.open(file_name).read.include?(text)
       end
-      
+
     end
   end
 end
