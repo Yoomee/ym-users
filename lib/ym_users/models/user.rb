@@ -23,37 +23,37 @@ module YmUsers::User
         end
       end
     end
-    
+
   end
-  
+
   def admin?
     role_is?(:admin)
   end
   alias_method :is_admin?, :admin?
-  
+
   def full_name
     "#{first_name} #{last_name}".strip
   end
-  
+
   def full_name=(val)
     names = val.split(" ")
     self.last_name = names.pop if names.length > 1
     self.first_name = names.join(" ")
     val
   end
-  
+
   def role_is?(role_type)
     role.present? && [*role_type].collect(&:to_s).include?(role)
   end
-  
+
   def to_s
    full_name
   end
-  
+
   def yoomee_staff?
     admin? && email.in?(YmUsers::YOOMEE_EMAILS)
   end
-  
+
 end
 
-YmUsers::YOOMEE_EMAILS = %w{andy nicola rich matt edward chrystal jon tim greg david carrie}.map{|u| "#{u}@yoomee.com"}
+YmUsers::YOOMEE_EMAILS = %w{andy nicola rich matt edward chrystal jon tim greg david carrie amy}.map{|u| "#{u}@yoomee.com"}
