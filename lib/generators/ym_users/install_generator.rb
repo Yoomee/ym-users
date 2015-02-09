@@ -9,6 +9,7 @@ module YmUsers
 
       def manifest
         copy_file "controllers/users_controller.rb", "app/controllers/users_controller.rb"
+        copy_file "models/user.rb", "app/models/user.rb"
         copy_file "models/ability.rb", "app/models/ability.rb"
         copy_file "models/user.rb", "app/models/user.rb"
         if File.exists?("db/seeds.rb") && !file_contains?("#{Rails.root}/db/seeds.rb", '@yoomee.com')
