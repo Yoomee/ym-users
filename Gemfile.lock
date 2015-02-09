@@ -24,13 +24,14 @@ GIT
 PATH
   remote: .
   specs:
-    ym_users (0.0.1)
+    ym_users (1.1.1)
       cancancan (~> 1.8)
       devise (~> 3.2.4)
       rails (~> 4.1.1)
       ym_core
 
 GEM
+  remote: https://yoomee:wLjuGMTu30AvxVyIrq3datc73LVUkvo@gems.yoomee.com/
   remote: https://rubygems.org/
   specs:
     actionmailer (4.1.1)

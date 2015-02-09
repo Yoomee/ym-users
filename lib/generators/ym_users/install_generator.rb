@@ -12,6 +12,11 @@ module YmUsers
         copy_file "models/user.rb", "app/models/user.rb"
         copy_file "models/ability.rb", "app/models/ability.rb"
         copy_file "models/user.rb", "app/models/user.rb"
+        FileUtils.mkdir_p 'features/step_definitions'
+        copy_file "features/user.feature", "features/user.feature"
+        copy_file "features/step_definitions/user_steps.rb", "features/step_definitions/user_steps.rb"
+        FileUtils.mkdir_p 'spec/factories'
+        copy_file "spec/factories/users.rb", "spec/factories/users.rb"
         if File.exists?("db/seeds.rb") && !file_contains?("#{Rails.root}/db/seeds.rb", '@yoomee.com')
           append_to_file "db/seeds.rb", File.read(find_in_source_paths("db/seeds.rb"))
         end
