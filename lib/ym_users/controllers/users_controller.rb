@@ -1,6 +1,6 @@
 module YmUsers::UsersController
 
-  def create_user
+  def create
     @user = User.new(create_user_params)
     if @user.save
       redirect_to(@user)
