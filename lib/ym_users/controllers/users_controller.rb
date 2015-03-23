@@ -1,6 +1,7 @@
 module YmUsers::UsersController
 
-  def create
+  def create_user
+    # Admins need to be able to sign people up, can't use create route because it signs you in
     @user = User.new(create_user_params)
     if @user.save
       redirect_to(@user)

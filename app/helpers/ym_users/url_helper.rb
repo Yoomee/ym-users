@@ -29,4 +29,10 @@ module YmUsers::UrlHelper
     link_to(*args, &block)
   end
 
+  def user_url_and_method_create_edit(user)
+    { :url => user.new_record? ? create_user_users_path : user_path(user),
+      :method => user.new_record? ? :post : :put
+    }
+  end
+
 end

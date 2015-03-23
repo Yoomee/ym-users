@@ -15,10 +15,11 @@ module ActionDispatch::Routing
         end
       end
 
-      resources :users do
+      resources :users, :except => :create do
         collection do
           get 'stats'
           get 'manage'
+          post 'create_user'
         end
       end
       get 'super' => 'super#index'
