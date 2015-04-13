@@ -1,5 +1,5 @@
 module YmUsers::User
-  
+
   def self.included(base)
     base.send(:include, YmCore::Model)
     # Include default devise modules. Others available are:
@@ -13,9 +13,9 @@ module YmUsers::User
 
     base.extend(ClassMethods)
   end
-  
+
   module ClassMethods
-    
+
     def has_roles(*args)
       args.each do |role|
         define_method("#{role}?") do
@@ -56,4 +56,4 @@ module YmUsers::User
 
 end
 
-YmUsers::YOOMEE_EMAILS = %w{andy nicola rich matt edward chrystal jon tim greg david carrie amy}.map{|u| "#{u}@yoomee.com"}
+YmUsers::YOOMEE_EMAILS = %w{andy nicola rich jon tim greg david carrie amy mark nikki edward ant claire developers}.map{|u| "#{u}@yoomee.com"}
