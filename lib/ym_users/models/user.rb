@@ -4,7 +4,7 @@ module YmUsers::User
     base.send(:include, YmCore::Model)
     # Include default devise modules. Others available are:
     # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-    base.devise :database_authenticatable, :recoverable, :rememberable, :trackable, :registerable
+    base.devise :database_authenticatable, :recoverable, :rememberable, :registerable
 
     base.image_accessor :image
     base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif, :bmp], :case_sensitive => false, :message => "must be an image")
